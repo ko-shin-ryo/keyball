@@ -153,6 +153,9 @@ void keyball_oled_render_ballinfo(void);
 /// It shows column, row, key code, and key name (if available).
 void keyball_oled_render_keyinfo(void);
 
+/// keyball_oled_render_layerinfo renders highest layer information to OLED.
+void keyball_oled_render_layerinfo(void);
+
 /// keyball_get_scroll_mode gets current scroll mode.
 bool keyball_get_scroll_mode(void);
 
