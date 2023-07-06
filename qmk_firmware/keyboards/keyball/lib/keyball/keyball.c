@@ -410,22 +410,21 @@ void keyball_oled_render_keyinfo(void) {
 void keyball_oled_render_layerinfo(void){
 #ifdef OLED_ENABLE
     oled_write_P(PSTR("Layr: "), false);
-    if (get_highest_layer(layer_state) == 0) {
-        oled_write_char(to_1x(get_highest_layer(layer_state)), false);
-        oled_write_P(PSTR("              "), false);
-    } else if (get_highest_layer(layer_state) == 1) {
-        oled_write_P(PSTR("    "), false);
-        oled_write_char(to_1x(get_highest_layer(layer_state)), false);
-        oled_write_P(PSTR("          "), false);
-    } else if (get_highest_layer(layer_state) == 2) {
-        oled_write_P(PSTR("        "), false);
-        oled_write_char(to_1x(get_highest_layer(layer_state)), false);
-        oled_write_P(PSTR("      "), false);
-    } else if (get_highest_layer(layer_state) == 3) {
-        oled_write_P(PSTR("            "), false);
-        oled_write_char(to_1x(get_highest_layer(layer_state)), false);
-        oled_write_P(PSTR("  "), false);
+    switch (get_highest_layer(layer_state)) {
+        case 1:
+            oled_write_P(PSTR("    "), false);
+            break;
+        case 2:
+            oled_write_P(PSTR("        "), false);
+            break;
+        case 3:
+            oled_write_P(PSTR("            "), false);
+            break;
+        default:
+            break;
     }
+    oled_write_char(to_1x(get_highest_layer(layer_state)), false);
+    oled_write_ln_P(PSTR(""), false);
 #endif
 }
 
