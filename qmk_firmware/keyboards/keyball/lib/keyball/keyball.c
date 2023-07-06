@@ -412,13 +412,13 @@ void keyball_oled_render_layerinfo(void){
     oled_write_P(PSTR("Layr: "), false);
     switch (get_highest_layer(layer_state)) {
         case 1:
-            oled_write_P(PSTR("    "), false);
+            oled_write_P(PSTR("++++ "), false);
             break;
         case 2:
-            oled_write_P(PSTR("        "), false);
+            oled_write_P(PSTR("++++++++ "), false);
             break;
         case 3:
-            oled_write_P(PSTR("            "), false);
+            oled_write_P(PSTR("++++++++++++ "), false);
             break;
         default:
             break;
